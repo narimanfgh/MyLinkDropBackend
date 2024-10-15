@@ -19,6 +19,14 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            // New fields
+            $table->enum('gender', ['male', 'female', 'other'])->nullable(); // Gender field (can use enum or string)
+            $table->date('birthday')->nullable(); // Birthday field
+            $table->string('language', 10)->default('en'); // Language field (with default value of 'en')
+            $table->text('bio')->nullable(); // Bio field
+            $table->string('profilePicture')->nullable(); // Profile picture URL field
+            $table->string('affiliateID')->nullable(); // Affiliate ID field
+   
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

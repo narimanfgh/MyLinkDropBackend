@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    
+    public function privileges()
+    {
+        return $this->belongsToMany(Privilege::class, 'privilege_user');
+    }
 }
